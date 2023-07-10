@@ -40,6 +40,17 @@ function submitForm(event) {
     let jobChosen = document.getElementById("type_of_work").value;
     console.log(jobChosen);
 
+    if (jobChosen == 1) {
+        let totalPrice = backEndPrice * hoursRequested;
+        console.log(totalPrice);
+    } else if (jobChosen == 2) {
+        let totalPrice = frontEndPrice * hoursRequested;
+        console.log(totalPrice);
+    } else if (jobChosen == 3) {
+        let totalPrice = projectAnalysisPrice * hoursRequested;
+        console.log(totalPrice);
+    }
+
 }
 
 
