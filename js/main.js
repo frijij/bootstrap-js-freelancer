@@ -51,13 +51,29 @@ function submitForm(event) {
         console.log(totalPrice);
     }
 
+    // applicazione sconto
+    // - creare array con codici sconto
+    // - applicare sconto del 25% se lo sconto è nella lista
+
+    const discount = 0.25;
+    let discountCode = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
+    let insertedCode = document.getElementById("inputDiscountCode").value;
+    console.log(insertedCode);
+
+    for (i = 0; i < discountCode.length; i++) {
+        if (discountCode[i] === insertedCode) {
+            let discountedPrice = totalPrice * discount;
+            console.log(discountedPrice);
+        }else{
+            console.log("non hai un buono sconto valido");
+        }
+    }
+
+
 }
 
 
 
-// applicazione sconto
-// - creare array con codici sconto
-// - applicare sconto del 25% se lo sconto è nella lista
 
 
 
@@ -67,3 +83,11 @@ Se il codice inserito è valido, dopo aver calcolato il prezzo scontato, elimina
 */
 
 //------------------------ FUNZIONI ------------------------
+function presenza(array, elemento) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === elemento) {
+            return true;
+        }
+    }
+    return false;
+}
