@@ -26,9 +26,19 @@ Alcuni consigli
 // - sviluppo frontend = 15.3 * numero ore
 // - analisi di progetto = 33,6 * numero ore 
 function submitForm(event) {
-  //controllo che il form sia collegato correttamente e rimuovo il comportamento di default del submit
+    //controllo che il form sia collegato correttamente e rimuovo il comportamento di default del submit
     event.preventDefault();
     console.log("Il form funziona.");
+
+    const backEndPrice = 20.5;
+    const frontEndPrice = 15.3;
+    const projectAnalysisPrice = 33.6;
+
+    let hoursRequested = document.getElementById("Hours_Requested").value;
+    console.log("Ore di consulenza richieste: " + hoursRequested);
+
+    let jobChosen = document.getElementById("type_of_work").value;
+    console.log(jobChosen);
 
 }
 
@@ -36,7 +46,7 @@ function submitForm(event) {
 
 // applicazione sconto
 // - creare array con codici sconto
-// - applicare sconto del 25% se lo sconto è nella lista 
+// - applicare sconto del 25% se lo sconto è nella lista
 
 
 
