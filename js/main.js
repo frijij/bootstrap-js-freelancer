@@ -25,6 +25,12 @@ Alcuni consigli
 // - sviluppo backend = 20.5 * numero ore 
 // - sviluppo frontend = 15.3 * numero ore
 // - analisi di progetto = 33,6 * numero ore 
+function submitForm(event) {
+  //controllo che il form sia collegato correttamente e rimuovo il comportamento di default del submit
+    event.preventDefault();
+    console.log("Il form funziona.");
+
+}
 
 
 
@@ -38,3 +44,5 @@ Alcuni consigli
 Quando l’utente clicca sul pulsante “Send”, se il codice promozionale inserito non è valido, facciamo diventare quest’ultimo di colore rosso.
 Se il codice inserito è valido, dopo aver calcolato il prezzo scontato, eliminare quel codice dall’elenco dei codici sconto disponibili, in modo che non sia più utilizzabile.
 */
+
+//------------------------ FUNZIONI ------------------------
