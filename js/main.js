@@ -33,40 +33,39 @@ function submitForm(event) {
     const backEndPrice = 20.5;
     const frontEndPrice = 15.3;
     const projectAnalysisPrice = 33.6;
-
     let hoursRequested = document.getElementById("Hours_Requested").value;
     console.log("Ore di consulenza richieste: " + hoursRequested);
-
     let jobChosen = document.getElementById("type_of_work").value;
     console.log(jobChosen);
+    let totalPrice = selectedOption(jobChosen, backEndPrice, frontEndPrice, projectAnalysisPrice) * hoursRequested;
+    console.log(totalPrice);
 
-    if (jobChosen == 1) {
-        let totalPrice = backEndPrice * hoursRequested;
-        console.log(totalPrice);
-    } else if (jobChosen == 2) {
-        let totalPrice = frontEndPrice * hoursRequested;
-        console.log(totalPrice);
-    } else if (jobChosen == 3) {
-        let totalPrice = projectAnalysisPrice * hoursRequested;
-        console.log(totalPrice);
-    }
-
+    /* if (jobChosen == 1) {
+         let totalPrice = backEndPrice * hoursRequested;
+         console.log(totalPrice);
+     } else if (jobChosen == 2) {
+         let totalPrice = frontEndPrice * hoursRequested;
+         console.log(totalPrice);
+     } else if (jobChosen == 3) {
+         let totalPrice = projectAnalysisPrice * hoursRequested;
+         console.log(totalPrice);
+     }
+ */
     // applicazione sconto
     // - creare array con codici sconto
     // - applicare sconto del 25% se lo sconto è nella lista
 
-    const discount = 0.25;
+    const discount = 0.75;
     let discountCode = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
     let insertedCode = document.getElementById("inputDiscountCode").value;
     console.log(insertedCode);
 
-    for (i = 0; i < discountCode.length; i++) {
-        if (discountCode[i] === insertedCode) {
-            let discountedPrice = totalPrice * discount;
-            console.log(discountedPrice);
-        }else{
-            console.log("non hai un buono sconto valido");
-        }
+    // controllo che il codice sconto sia nella lista e se c'è applico lo sconto al prezzo 
+    let includedCode = isIncluded(discountCode, insertedCode);
+    let discountedPrice = 0
+    if (includedCode) {
+        discountedPrice = totalPrice * discount;
+        console.log(discountedPrice);
     }
 
 
@@ -83,9 +82,22 @@ Se il codice inserito è valido, dopo aver calcolato il prezzo scontato, elimina
 */
 
 //------------------------ FUNZIONI ------------------------
-function presenza(array, elemento) {
+function selectedOption(selection, price1, price2, price3) {
+    let userOption = 0
+    if (selection == 1) {
+        userOption = price1;
+    } else if (selection == 2) {
+        userOption = price2;
+    } else if (selection == 3) {
+        userOption = price3;
+    }
+    console.log("il prezzo per il lavoro scelto è: " + userOption);
+    return userOption
+}
+
+function isIncluded(array, element) {
     for (let i = 0; i < array.length; i++) {
-        if (array[i] === elemento) {
+        if (array[i] === element) {
             return true;
         }
     }
