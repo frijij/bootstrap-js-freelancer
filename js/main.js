@@ -52,7 +52,10 @@ function submitForm(event) {
         console.log("Il prezzo scontato è € " + discountedPrice);
     } else {
         discountedPrice = discountedPrice + totalPrice;
+        // BONUS 1
+        document.getElementById("inputDiscountCode").classList.add("text-danger");
     }
+
 
     // stampo il prezzo in forma umana su html
     const divPrice = document.querySelector("div#finalPrice");
@@ -61,8 +64,7 @@ function submitForm(event) {
 }
 
 
-/*Bonus:
-Quando l’utente clicca sul pulsante “Send”, se il codice promozionale inserito non è valido, facciamo diventare quest’ultimo di colore rosso.
+/* BONUS 2:
 Se il codice inserito è valido, dopo aver calcolato il prezzo scontato, eliminare quel codice dall’elenco dei codici sconto disponibili, in modo che non sia più utilizzabile.
 */
 
